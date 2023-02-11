@@ -1,0 +1,26 @@
+{
+    "name": "cjw6k/php-static-analyzer-comparison",
+    "description": "A comparison of PHP static analyzers",
+    "authors": [
+        {
+            "name": "cjw6k",
+            "email": "cj@w6k.ca"
+        }
+    ],
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.8",
+        "ergebnis/composer-normalize": "^2.29"
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
+            "ergebnis/composer-normalize": true
+        }
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false,
+            "forward-command": true
+        }
+    }
+}
