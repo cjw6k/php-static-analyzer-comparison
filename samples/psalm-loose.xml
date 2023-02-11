@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-        errorLevel="1"
+        errorLevel="8"
         resolveFromConfigFile="true"
         findUnusedCode="true"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -11,7 +11,7 @@
     <projectFiles>
         <directory name="." />
         <ignoreFiles>
-            <file name="phan-config-*.php"/>
+            <file name="phan-*.php"/>
         </ignoreFiles>
     </projectFiles>
 </psalm>
