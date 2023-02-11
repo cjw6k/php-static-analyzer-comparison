@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  build: docker build -t cjw6k/php-static-analyzer-comparison:dev -f Dockerfile .
+
+  run: docker run --rm -it cjw6k/php-static-analyzer-comparison:dev
+
+  dev:
+    cmds:
+      - task: build
+      - task: run
+
+  dive-ui: dive cjw6k/php-static-analyzer-comparison:dev
+
+  dive: dive cjw6k/php-static-analyzer-comparison:dev --ci

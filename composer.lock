@@ -4,9 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6840207bdb6353e655506a7bae4b243",
-    "packages": [],
-    "packages-dev": [
+    "content-hash": "0b176ff83d3bda3acf3e44fdd9be4e04",
+    "packages": [
         {
             "name": "bamarni/composer-bin-plugin",
             "version": "1.8.2",
@@ -63,7 +62,9 @@
                 "source": "https://github.com/bamarni/composer-bin-plugin/tree/1.8.2"
             },
             "time": "2022-10-31T08:38:03+00:00"
-        },
+        }
+    ],
+    "packages-dev": [
         {
             "name": "ergebnis/composer-normalize",
             "version": "2.29.0",

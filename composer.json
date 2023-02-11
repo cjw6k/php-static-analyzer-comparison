@@ -1,14 +1,17 @@
 {
     "name": "cjw6k/php-static-analyzer-comparison",
     "description": "A comparison of PHP static analyzers",
+    "license": "MIT",
     "authors": [
         {
             "name": "cjw6k",
             "email": "cj@w6k.ca"
         }
     ],
+    "require": {
+        "bamarni/composer-bin-plugin": "^1.8"
+    },
     "require-dev": {
-        "bamarni/composer-bin-plugin": "^1.8",
         "ergebnis/composer-normalize": "^2.29"
     },
     "config": {
@@ -22,5 +25,13 @@
             "bin-links": false,
             "forward-command": true
         }
+    },
+    "scripts": {
+        "psalm-samples-strict": [
+            "vendor-bin/psalm/vendor/bin/psalm -c samples/psalm-level-1.xml --no-cache"
+        ],
+        "psalm-samples-loose": [
+            "vendor-bin/psalm/vendor/bin/psalm -c samples/psalm-level-8.xml --no-cache"
+        ]
     }
 }
