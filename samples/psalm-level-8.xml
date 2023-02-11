@@ -10,5 +10,8 @@
 >
     <projectFiles>
         <directory name="." />
+        <ignoreFiles>
+            <file name="phan-config-*.php"/>
+        </ignoreFiles>
     </projectFiles>
 </psalm>

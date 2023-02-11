@@ -6,6 +6,7 @@ RUN apk add --no-cache \
     php82-dom=8.2.2-r0 \
     php82-mbstring=8.2.2-r0 \
     php82-openssl=8.2.2-r0 \
+    php82-pecl-ast=1.1.0-r1 \
     php82-phar=8.2.2-r0 \
     php82-simplexml=8.2.2-r0 \
     php82-tokenizer=8.2.2-r0 \
