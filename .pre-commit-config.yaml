@@ -22,3 +22,11 @@ repos:
     rev: v2.12.1-beta
     hooks:
       - id: hadolint
+  - repo: local
+    hooks:
+      - id: composer-normalize
+        name: normalize composer.json
+        entry: composer normalize
+        language: system
+        files: 'composer\.json$'
+        pass_filenames: false
