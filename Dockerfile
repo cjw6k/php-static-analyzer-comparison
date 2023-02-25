@@ -1,4 +1,4 @@
-FROM alpine:edge@sha256:4f83fc905e4551f4e07de298f55745e766cc880f890244c1e6872aab60f0a0f6
+FROM alpine:edge@sha256:5bd9939b4140caa8c716499e53438053b4e1aa872a170f4399ec71c00e23b835
 
 RUN apk add --no-cache \
     php82=8.2.3-r0 \
