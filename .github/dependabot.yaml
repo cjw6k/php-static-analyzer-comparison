@@ -6,6 +6,8 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "10:00"
+    commit-message:
+      prefix: "⚙ "
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -13,6 +15,8 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "10:00"
+    commit-message:
+      prefix: "⚙ "
 
   - package-ecosystem: "composer"
     directory: "/vendor-bin/phan"
@@ -20,6 +24,8 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "10:00"
+    commit-message:
+      prefix: "⚙ "
 
   - package-ecosystem: "composer"
     directory: "/vendor-bin/phpstan"
@@ -27,6 +33,8 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "10:00"
+    commit-message:
+      prefix: "⚙ "
 
   - package-ecosystem: "composer"
     directory: "/vendor-bin/psalm"
@@ -34,3 +42,5 @@ updates:
       interval: "weekly"
       day: "saturday"
       time: "10:00"
+    commit-message:
+      prefix: "⚙ "
