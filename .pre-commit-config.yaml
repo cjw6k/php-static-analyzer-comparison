@@ -37,3 +37,6 @@ repos:
 ci:
   autofix_commit_msg: "⚙ auto fixes [pre-commit.ci]"
   autoupdate_commit_msg: "⚙ auto updates [pre-commit.ci]"
+  skip:
+    - hadolint
+    - composer-normalize
