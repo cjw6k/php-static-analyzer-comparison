@@ -14,14 +14,17 @@ repos:
       - id: check-json
 #      - id: check-toml
 #      - id: check-xml
+
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.15.4
     hooks:
       - id: gitleaks
+
   - repo: https://github.com/hadolint/hadolint
     rev: v2.12.1-beta
     hooks:
       - id: hadolint
+
   - repo: local
     hooks:
       - id: composer-normalize
@@ -30,3 +33,7 @@ repos:
         language: system
         files: 'composer\.json$'
         pass_filenames: false
+
+ci:
+  autofix_commit_msg: "⚙ auto fixes [pre-commit.ci]"
+  autoupdate_commit_msg: "⚙ auto updates [pre-commit.ci]"
