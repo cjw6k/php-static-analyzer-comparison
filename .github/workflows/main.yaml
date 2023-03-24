@@ -31,3 +31,8 @@ jobs:
           docker run --rm cjw6k/analyzer \
             composer run psalm-samples-strict \
             -- --no-progress -output-format=checkstyle > _out/psalm.xml
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: analyses
+          path: _out/*.xml
