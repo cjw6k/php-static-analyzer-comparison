@@ -10,7 +10,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - run: mkdir _out
+      - name: setup output director
+        run: mkdir _out
       - name: build image
         run: |
           docker build -t cjw6k/analyzer -f Dockerfile .
@@ -31,7 +32,7 @@ jobs:
         run: |
           docker run --rm cjw6k/analyzer \
             composer run psalm-samples-strict \
-            -- --no-progress -output-format=checkstyle > _out/psalm.xml
+            -- --no-progress --output-format=checkstyle > _out/psalm.xml
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
