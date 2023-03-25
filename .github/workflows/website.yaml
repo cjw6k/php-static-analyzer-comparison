@@ -1,0 +1,12 @@
+name: Refresh analyses
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  produce-analyses:
+    uses: ./.github/workflows/analyze.yaml
+    with:
+      upload-artifacts: true
