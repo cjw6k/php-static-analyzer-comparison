@@ -1,39 +1,53 @@
-name: Main
+name: Analyze samples
 
 on:
-  push
+  push:
+    branches-ignore:
+      - main
+
+  workflow_call:
+    inputs:
+      upload-artifacts:
+        type: boolean
 
 jobs:
-  analyze-samples:
+  analyze:
     runs-on: ubuntu-latest
     name: Analyze the samples
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: setup output director
-        run: mkdir _out
+
       - name: build image
         run: |
           docker build -t cjw6k/analyzer -f Dockerfile .
+
+      - name: setup output directory
+        run: mkdir _out
+
       - name: phan
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run phan-samples-strict \
             -- --no-progress-bar -m checkstyle > _out/phan.xml
+
       - name: phpstan
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run phpstan-samples-strict \
             -- --no-progress --error-format=checkstyle > _out/phpstan.xml
+
       - name: psalm
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run psalm-samples-strict \
             -- --no-progress --output-format=checkstyle > _out/psalm.xml
+
       - name: upload artifacts
+        if: inputs.upload-artifacts
         uses: actions/upload-artifact@v3
         with:
           name: analyses
