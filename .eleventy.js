@@ -9,7 +9,7 @@ module.exports = function (eleventyConfig) {
     if(! analysesAreAvailable(['phan', 'phpstan', 'psalm'])) {
         throw new Error('Build cancelled due to missing requirements');
     }
-    eleventyConfig.addPassthroughCopy({'_out/*.xml': '/'})
+    eleventyConfig.addPassthroughCopy({'build/analyzer-outputs/*.xml': '/'})
 
     const cssnano = postcss([require('cssnano')({preset: require('cssnano-preset-default')})]);
     const minifyCss = (src, dest) => {
@@ -39,8 +39,8 @@ module.exports = function (eleventyConfig) {
 function analysesAreAvailable(analyzers) {
     let foundAll = true;
     for (let i in analyzers) {
-        if (! fs.existsSync('_out/' + analyzers[i] + '.xml')) {
-            console.error('_out/' + analyzers[i] + '.xml is required for the build, but does not exist');
+        if (! fs.existsSync('build/analyzer-outputs/' + analyzers[i] + '.xml')) {
+            console.error('build/analyzer-outputs/' + analyzers[i] + '.xml is required for the build, but does not exist');
             foundAll = false;
         }
     }

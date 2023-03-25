@@ -2,7 +2,8 @@
 .git/
 .github/
 .taskfiles/
-_out/*
+build/analyses/*
+build/analyzer-outputs/*
 website/_site/
 node_modules/
 vendor/
