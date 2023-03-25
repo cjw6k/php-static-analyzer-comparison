@@ -11,6 +11,8 @@ module.exports = function (eleventyConfig) {
     }
     eleventyConfig.addPassthroughCopy({'build/analyzer-outputs/*.xml': '/'})
 
+    eleventyConfig.addPassthroughCopy({'comparison.schema.json': '/'});
+
     const cssnano = postcss([require('cssnano')({preset: require('cssnano-preset-default')})]);
     const minifyCss = (src, dest) => {
         cssnano.process(fs.readFileSync(src), {from: src, to: dest}).then(result => {
