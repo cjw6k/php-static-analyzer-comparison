@@ -34,7 +34,7 @@ repos:
     rev: 0.22.0
     hooks:
       - id: check-metaschema
-        files: .schema.json$
+        files: '\.schema\.json$'
 
   - repo: local
     hooks:
