@@ -19,23 +19,29 @@ tasks:
       - task -a
 
   analyze-samples:
-    desc: Run all the PHP static analyzers and store checkstyle reports to _out/
+    desc: Run all the PHP static analyzers and store checkstyle reports to build/analyzer-outputs/
     cmds:
       - task: docker:build
       - task: docker:run-ni
         ignore_error: true
         vars:
           CMD: "composer run phan-samples-strict -- --no-progress-bar -m checkstyle"
-          OUT: "_out/phan.xml"
+          OUT: "build/analyzer-outputs/phan.xml"
 
       - task: docker:run-ni
         ignore_error: true
         vars:
           CMD: "composer run phpstan-samples-strict -- --no-progress --error-format=checkstyle"
-          OUT: "_out/phpstan.xml"
+          OUT: "build/analyzer-outputs/phpstan.xml"
 
       - task: docker:run-ni
         ignore_error: true
         vars:
           CMD: "composer run psalm-samples-strict -- --no-progress --output-format=checkstyle"
-          OUT: "_out/psalm.xml"
+          OUT: "build/analyzer-outputs/psalm.xml"
+
+  serve:
+    desc: Run eleventy built-in dev server
+    cmds:
+      - task: analyze-samples
+      - npm run start

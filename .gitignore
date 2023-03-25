@@ -1,5 +1,6 @@
 /.idea
-/_out/*.xml
+/build/analyzer-outputs/*.xml
+/build/comparisons/*.json
 /node_modules
 /vendor
 /vendor-bin/**/vendor
