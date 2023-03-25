@@ -1,12 +1,51 @@
-name: Refresh analyses
+name: Build and deploy to github pages
 
 on:
   push:
     branches:
       - main
 
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   produce-analyses:
     uses: ./.github/workflows/analyze.yaml
     with:
       upload-artifacts: true
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: download analyses
+        uses: actions/download-artifact@v3
+        with:
+          name: analyses
+          path: _out/
+
+      - name: (tmp) display downloaded files
+        run: ls -R _out/
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: install deps
+        run: npm ci
+
+      - name: build
+        run: npm run build-gh
+
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./website/_site
