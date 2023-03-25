@@ -25,6 +25,11 @@ repos:
     hooks:
       - id: hadolint
 
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.23
+    hooks:
+      - id: actionlint
+
   - repo: local
     hooks:
       - id: composer-normalize
@@ -39,4 +44,5 @@ ci:
   autoupdate_commit_msg: "⚙ auto updates [pre-commit.ci]"
   skip:
     - hadolint
+    - actionlint
     - composer-normalize
