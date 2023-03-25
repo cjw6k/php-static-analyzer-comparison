@@ -17,3 +17,25 @@ tasks:
     desc: List available tasks in this project
     cmds:
       - task -a
+
+  analyze-samples:
+    desc: Run all the PHP static analyzers and store checkstyle reports to _out/
+    cmds:
+      - task: docker:build
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run phan-samples-strict -- --no-progress-bar -m checkstyle"
+          OUT: "_out/phan.xml"
+
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run phpstan-samples-strict -- --no-progress --error-format=checkstyle"
+          OUT: "_out/phpstan.xml"
+
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run psalm-samples-strict -- --no-progress --output-format=checkstyle"
+          OUT: "_out/psalm.xml"
