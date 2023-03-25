@@ -30,6 +30,12 @@ repos:
     hooks:
       - id: actionlint
 
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.22.0
+    hooks:
+      - id: check-metaschema
+        files: .schema.json$
+
   - repo: local
     hooks:
       - id: composer-normalize

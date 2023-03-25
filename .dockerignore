@@ -2,7 +2,7 @@
 .git/
 .github/
 .taskfiles/
-build/analyses/*
+build/comparisons/*
 build/analyzer-outputs/*
 website/_site/
 node_modules/
