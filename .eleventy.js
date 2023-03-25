@@ -5,6 +5,10 @@ const outputDir = 'website/_site';
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'website/public': '/'})
+
+    if(! analysesAreAvailable(['phan', 'phpstan', 'psalm'])) {
+        throw new Error('Build cancelled due to missing requirements');
+    }
     eleventyConfig.addPassthroughCopy({'_out/*.xml': '/'})
 
     const cssnano = postcss([require('cssnano')({preset: require('cssnano-preset-default')})]);
@@ -14,7 +18,7 @@ module.exports = function (eleventyConfig) {
             if (! fs.existsSync(baseDir)) {
                 fs.mkdirSync(baseDir, {recursive: true});
             }
-            fs.writeFileSync(outputDir + '/' +dest, result.css)
+            fs.writeFileSync(outputDir + '/' + dest, result.css)
         });
     };
 
@@ -31,3 +35,15 @@ module.exports = function (eleventyConfig) {
         }
     }
 };
+
+function analysesAreAvailable(analyzers) {
+    let foundAll = true;
+    for (let i in analyzers) {
+        if (! fs.existsSync('_out/' + analyzers[i] + '.xml')) {
+            console.error('_out/' + analyzers[i] + '.xml is required for the build, but does not exist');
+            foundAll = false;
+        }
+    }
+
+    return foundAll;
+}
