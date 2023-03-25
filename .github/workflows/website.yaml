@@ -27,9 +27,6 @@ jobs:
           name: analyses
           path: _out/
 
-      - name: (tmp) display downloaded files
-        run: ls -R _out/
-
       - name: setup node
         uses: actions/setup-node@v3
         with:
