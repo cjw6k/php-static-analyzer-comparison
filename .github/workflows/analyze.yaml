@@ -22,9 +22,6 @@ jobs:
         run: |
           docker build -t cjw6k/analyzer -f Dockerfile .
 
-      - name: setup output directory
-        run: mkdir _out
-
       - name: phan
         continue-on-error: true
         run: |

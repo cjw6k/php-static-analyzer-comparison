@@ -5,6 +5,11 @@ tasks:
 
   run: docker run --rm -it cjw6k/php-static-analyzer-comparison:dev
 
+  run-ni:
+    ignore_error: true
+    cmds:
+      - docker run --rm cjw6k/php-static-analyzer-comparison:dev {{.CMD}} > {{.OUT}}
+
   dev:
     cmds:
       - task: build

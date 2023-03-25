@@ -2,6 +2,7 @@
 .git/
 .github/
 .taskfiles/
+_out/*
 website/_site/
 node_modules/
 vendor/
