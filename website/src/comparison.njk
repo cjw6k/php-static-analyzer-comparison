@@ -1,0 +1,92 @@
+---
+layout: main.njk
+tags:
+  - comparisons
+pagination:
+    data: comparisons
+    size: 1
+    alias: comparison
+    addAllPagesToCollections: true
+permalink: "comparisons/{{ comparison.id }}.html"
+---
+<article>
+    <header>
+        <h2>Comparison #{{ comparison.id }}</h2>
+        {% include 'pagination.njk' %}
+    </header>
+    <section id="document">
+        <header>
+            <h3>Source Document</h3>
+        </header>
+        <pre><code>{{ comparison.instance.document | fromBase64 }}</code></pre>
+    </section>
+    <section id="analyses">
+        <header>
+            <h3>Analyses</h3>
+        </header>
+        <nav>
+            <ul>
+            {% for analysis in comparison.instance.analyses %}
+                <li>
+                    {% if analysis.errors.length %}
+                        <a href="#{{ analysis.analyzer }}">{{ analysis.analyzer }}</a>
+                    {% else %}
+                        {{ analysis.analyzer }}
+                    {% endif %}
+                    -
+                    {{ analysis.errors.length }} error(s)
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+        {% for analysis in comparison.instance.analyses %}
+            {% if analysis.errors.length %}
+            <section id="{{ analysis.analyzer }}">
+                <header>
+                    <h4>{{ analysis.analyzer }}</h4>
+                    <nav>
+                        <a href="#document">Source Document</a>
+                        &middot; <a href="#analyses">Analyses</a>
+                    </nav>
+                </header>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Line</th>
+                            <th>Column</th>
+                            <th>Severity</th>
+                            <th>Message</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for error in analysis.errors %}
+                        <tr>
+                            <td>{{ error.line }}</td>
+                            <td>{{ error.column }}</td>
+                            <td>{{ error.severity }}</td>
+                            <td>{{ error.message }}</td>
+                            <td>{{ error.source }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    {% if analysis.errors.length > 5 %}
+                    <tfoot>
+                        <tr>
+                            <th>Line</th>
+                            <th>Column</th>
+                            <th>Severity</th>
+                            <th>Message</th>
+                            <th>Source</th>
+                        </tr>
+                    </tfoot>
+                    {% endif %}
+                </table>
+            </section>
+            {% endif %}
+        {% endfor %}
+    </section>
+    <footer>
+        {% include 'pagination.njk' %}
+    </footer>
+</article>
