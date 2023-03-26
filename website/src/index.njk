@@ -2,7 +2,7 @@
 layout: main.njk
 ---
 <ul>
-    <li><a href="phan.xml">Phan</a></li>
-    <li><a href="phpstan.xml">PHPStan</a></li>
-    <li><a href="psalm.xml">Psalm</a></li>
+    {% for comparison in comparisons %}
+        <li><a href="comparisons/{{ comparison.id }}.json">{{ comparison.id }}</a></li>
+    {% endfor %}
 </ul>

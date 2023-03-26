@@ -79,7 +79,7 @@ function makeComparisons(eleventyConfig) {
             'build/comparisons/' + path.parse(samples[i]).name + '.json',
             JSON.stringify(instance)
         );
-        comparisons.push(samples[i]);
+        comparisons.push({"id": path.parse(samples[i]).name, "instance": instance});
     }
 
     eleventyConfig.addPassthroughCopy({'build/comparisons/*.json': '/comparisons'});
