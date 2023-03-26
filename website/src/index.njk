@@ -3,6 +3,6 @@ layout: main.njk
 ---
 <ul>
 {% for comparison in collections.comparisons %}
-    <li><a href="{{ comparison.page.url }}">{{ comparison.data.comparison.id }}</a></li>
+    <li><a href="{{ comparison.page.url | url }}">{{ comparison.data.comparison.id }}</a></li>
 {% endfor %}
 </ul>
