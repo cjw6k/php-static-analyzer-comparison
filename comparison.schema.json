@@ -44,7 +44,7 @@
                     "type": "array",
                     "items": {
                         "type": "object",
-                        "error": "An error in the source document",
+                        "description": "An error in the source document",
                         "properties": {
                             "line": {
                                 "type": "integer",
