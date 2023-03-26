@@ -2,7 +2,7 @@ FROM alpine:edge@sha256:ff8db144214ae3fe9d1b29d3bc352e0e3d4e1dba36a39f65dce4c8b4
 
 RUN apk add --no-cache \
     php82=8.2.4-r1 \
-    php82-curl8.2.4-r1 \
+    php82-curl=8.2.4-r1 \
     php82-dom=8.2.4-r1 \
     php82-mbstring=8.2.4-r1 \
     php82-openssl=8.2.4-r1 \
