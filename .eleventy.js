@@ -10,6 +10,8 @@ module.exports = function (eleventyConfig) {
 
     makeComparisons(eleventyConfig);
 
+    eleventyConfig.addFilter('fromBase64', atob);
+
     const cssnano = postcss([require('cssnano')({preset: require('cssnano-preset-default')})]);
     const minifyCss = (src, dest) => {
         cssnano.process(fs.readFileSync(src), {from: src, to: dest}).then(result => {
