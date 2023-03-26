@@ -28,6 +28,21 @@ module.exports = function (eleventyConfig) {
         'css/sakura-dark-solarized.min.css'
     );
 
+    eleventyConfig.addPassthroughCopy({'node_modules/prismjs/prism.js': 'js/prism.js'});
+    eleventyConfig.addPassthroughCopy(
+        {'node_modules/prismjs/components/prism-markup-templating.min.js': 'js/prism-markup-templating.min.js'}
+    );
+    eleventyConfig.addPassthroughCopy({'node_modules/prismjs/components/prism-php.min.js': 'js/prism-php.min.js'});
+    eleventyConfig.addPassthroughCopy(
+        {'node_modules/prism-themes/themes/prism-darcula.min.css': 'css/prism-darcula.min.css'}
+    );
+    eleventyConfig.addPassthroughCopy(
+        {'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.css': 'css/prism-line-numbers.min.css'}
+    );
+    eleventyConfig.addPassthroughCopy(
+        {'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js': 'js/prism-line-numbers.min.js'}
+    );
+
     return {
         dir: {
             input: 'website/src',

@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title | default("PHP Static Analyzer Comparison") }}</title>
+    <script src="{{ "/js/prism.js" | url }}"></script>
+    <script src="{{ "/js/prism-markup-templating.min.js" | url }}"></script>
+    <script src="{{ "/js/prism-php.min.js" | url }}"></script>
+    <script src="{{ "/js/prism-line-numbers.min.js" | url }}"></script>
     <link rel="stylesheet" href="{{ "/css/sakura-dark-solarized.min.css" | url }}">
+    <link rel="stylesheet" href="{{ "/css/prism-darcula.min.css" | url }}">
+    <link rel="stylesheet" href="{{ "/css/prism-line-numbers.min.css" | url }}">
 </head>
 <body>
     {{ content | safe }}
