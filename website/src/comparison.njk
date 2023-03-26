@@ -18,7 +18,7 @@ permalink: "comparisons/{{ comparison.id }}.html"
         <header>
             <h3>Source Document</h3>
         </header>
-        <pre><code>{{ comparison.instance.document | fromBase64 }}</code></pre>
+        <pre class="line-numbers"><code class="language-php">{{ comparison.instance.document | fromBase64 }}</code></pre>
     </section>
     <section id="analyses">
         <header>
