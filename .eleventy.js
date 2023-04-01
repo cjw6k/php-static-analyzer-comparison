@@ -53,13 +53,23 @@ module.exports = function (eleventyConfig) {
 };
 
 function makeComparisons(eleventyConfig) {
-    if(! analysesAreAvailable(['phan', 'phpstan', 'psalm'])) {
+    if(! analysesAreAvailable([
+        'phan-strict',
+        'phan-loose',
+        'phpstan-strict',
+        'phpstan-loose',
+        'psalm-strict',
+        'psalm-loose',
+    ])) {
         throw new Error('Build cancelled due to missing requirements');
     }
 
-    const phan = reformatCheckstyle('phan');
-    const phpstan = reformatCheckstyle('phpstan');
-    const psalm = reformatCheckstyle('psalm');
+    const phanStrict = reformatCheckstyle('phan-strict');
+    const phanLoose = reformatCheckstyle('phan-loose');
+    const phpstanStrict = reformatCheckstyle('phpstan-strict');
+    const phpstanLoose = reformatCheckstyle('phpstan-loose');
+    const psalmStrict = reformatCheckstyle('psalm-strict');
+    const psalmLoose = reformatCheckstyle('psalm-loose');
 
     eleventyConfig.addPassthroughCopy({'comparison.schema.json': '/'});
 
@@ -78,16 +88,28 @@ function makeComparisons(eleventyConfig) {
             document: fs.readFileSync('samples/' + samples[i]).toString('base64'),
             analyses: [
                 {
-                    analyzer: 'phan',
-                    errors: phan[name] ?? []
+                    analyzer: 'phan-strict',
+                    errors: phanStrict[name] ?? []
                 },
                 {
-                    analyzer: 'phpstan',
-                    errors: phpstan[name] ?? []
+                    analyzer: 'phan-loose',
+                    errors: phanLoose[name] ?? []
                 },
                 {
-                    analyzer: 'psalm',
-                    errors: psalm[name] ?? []
+                    analyzer: 'phpstan-strict',
+                    errors: phpstanStrict[name] ?? []
+                },
+                {
+                    analyzer: 'phpstan-loose',
+                    errors: phpstanLoose[name] ?? []
+                },
+                {
+                    analyzer: 'psalm-strict',
+                    errors: psalmStrict[name] ?? []
+                },
+                {
+                    analyzer: 'psalm-loose',
+                    errors: psalmLoose[name] ?? []
                 },
             ]
         };

@@ -26,19 +26,36 @@ tasks:
         ignore_error: true
         vars:
           CMD: "composer run phan-samples-strict -- --no-progress-bar -m checkstyle"
-          OUT: "build/analyzer-outputs/phan.xml"
+          OUT: "build/analyzer-outputs/phan-strict.xml"
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run phan-samples-loose -- --no-progress-bar -m checkstyle"
+          OUT: "build/analyzer-outputs/phan-loose.xml"
 
       - task: docker:run-ni
         ignore_error: true
         vars:
           CMD: "composer run phpstan-samples-strict -- --no-progress --error-format=checkstyle"
-          OUT: "build/analyzer-outputs/phpstan.xml"
+          OUT: "build/analyzer-outputs/phpstan-strict.xml"
+
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run phpstan-samples-loose -- --no-progress --error-format=checkstyle"
+          OUT: "build/analyzer-outputs/phpstan-loose.xml"
 
       - task: docker:run-ni
         ignore_error: true
         vars:
           CMD: "composer run psalm-samples-strict -- --no-progress --output-format=checkstyle"
-          OUT: "build/analyzer-outputs/psalm.xml"
+          OUT: "build/analyzer-outputs/psalm-strict.xml"
+
+      - task: docker:run-ni
+        ignore_error: true
+        vars:
+          CMD: "composer run psalm-samples-loose -- --no-progress --output-format=checkstyle"
+          OUT: "build/analyzer-outputs/psalm-loose.xml"
 
   serve:
     desc: Run eleventy built-in dev server
