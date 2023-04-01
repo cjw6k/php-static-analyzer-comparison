@@ -22,26 +22,47 @@ jobs:
         run: |
           docker build -t cjw6k/analyzer -f Dockerfile .
 
-      - name: phan
+      - name: phan-strict
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run phan-samples-strict \
-            -- --no-progress-bar -m checkstyle > build/analyzer-outputs/phan.xml
+            -- --no-progress-bar -m checkstyle > build/analyzer-outputs/phan-strict.xml
 
-      - name: phpstan
+      - name: phan-loose
+        continue-on-error: true
+        run: |
+          docker run --rm cjw6k/analyzer \
+            composer run phan-samples-loose \
+            -- --no-progress-bar -m checkstyle > build/analyzer-outputs/phan-loose.xml
+
+      - name: phpstan-strict
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run phpstan-samples-strict \
-            -- --no-progress --error-format=checkstyle > build/analyzer-outputs/phpstan.xml
+            -- --no-progress --error-format=checkstyle > build/analyzer-outputs/phpstan-strict.xml
 
-      - name: psalm
+      - name: phpstan-loose
+        continue-on-error: true
+        run: |
+          docker run --rm cjw6k/analyzer \
+            composer run phpstan-samples-loose \
+            -- --no-progress --error-format=checkstyle > build/analyzer-outputs/phpstan-loose.xml
+
+      - name: psalm-strict
         continue-on-error: true
         run: |
           docker run --rm cjw6k/analyzer \
             composer run psalm-samples-strict \
-            -- --no-progress --output-format=checkstyle > build/analyzer-outputs/psalm.xml
+            -- --no-progress --output-format=checkstyle > build/analyzer-outputs/psalm-strict.xml
+
+      - name: psalm-loose
+        continue-on-error: true
+        run: |
+          docker run --rm cjw6k/analyzer \
+            composer run psalm-samples-loose \
+            -- --no-progress --output-format=checkstyle > build/analyzer-outputs/psalm-loose.xml
 
       - name: upload artifacts
         if: inputs.upload-artifacts

@@ -34,9 +34,12 @@
                     "id": "string",
                     "description": "The analyzer",
                     "enum": [
-                        "phan",
-                        "phpstan",
-                        "psalm"
+                        "phan-strict",
+                        "phan-loose",
+                        "phpstan-strict",
+                        "phpstan-loose",
+                        "psalm-strict",
+                        "psalm-loose"
                     ]
                 },
                 "errors": {
