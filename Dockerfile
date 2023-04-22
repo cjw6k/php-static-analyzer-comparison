@@ -1,15 +1,15 @@
 FROM alpine:edge@sha256:2d01a16bab53a8405876cec4c27235d47455a7b72b75334c614f2fb0968b3f90
 
 RUN apk add --no-cache \
-    php82=8.2.5-r0 \
-    php82-curl=8.2.5-r0 \
-    php82-dom=8.2.5-r0 \
-    php82-mbstring=8.2.5-r0 \
-    php82-openssl=8.2.5-r0 \
+    php82=8.2.5-r1 \
+    php82-curl=8.2.5-r1 \
+    php82-dom=8.2.5-r1 \
+    php82-mbstring=8.2.5-r1 \
+    php82-openssl=8.2.5-r1 \
     php82-pecl-ast=1.1.0-r1 \
-    php82-phar=8.2.5-r0 \
-    php82-simplexml=8.2.5-r0 \
-    php82-tokenizer=8.2.5-r0 \
+    php82-phar=8.2.5-r1 \
+    php82-simplexml=8.2.5-r1 \
+    php82-tokenizer=8.2.5-r1 \
  && ln -s /usr/bin/php82 /usr/bin/php
 
 COPY --from=composer:2.5.5 /usr/bin/composer /usr/bin/composer
