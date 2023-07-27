@@ -1,6 +1,6 @@
-FROM alpine:edge@sha256:2d01a16bab53a8405876cec4c27235d47455a7b72b75334c614f2fb0968b3f90
+FROM alpine:3.18.2@sha256:25fad2a32ad1f6f510e528448ae1ec69a28ef81916a004d3629874104f8a7f70
 
-ARG PHP_VERSION="8.2.7-r1"
+ARG PHP_VERSION="8.2.8-r0"
 
 RUN apk add --no-cache \
     php82=${PHP_VERSION} \
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
     php82-tokenizer=${PHP_VERSION} \
  && ln -s /usr/bin/php82 /usr/bin/php
 
-COPY --from=composer:2.5.5 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.5.8 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /opt/php-static-analyzer-comparison
 
