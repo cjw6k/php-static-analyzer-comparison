@@ -16,7 +16,7 @@ repos:
 #      - id: check-xml
 
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.17.0
+    rev: v8.18.0
     hooks:
       - id: gitleaks
 
@@ -31,7 +31,7 @@ repos:
       - id: actionlint
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.24.1
+    rev: 0.26.3
     hooks:
       - id: check-metaschema
         files: '\.schema\.json$'
