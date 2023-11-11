@@ -14,7 +14,7 @@ RUN apk add --no-cache \
     php82-tokenizer=${PHP_VERSION} \
  && ln -s /usr/bin/php82 /usr/bin/php
 
-COPY --from=composer:2.5.8 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.6.5 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /opt/php-static-analyzer-comparison
 
