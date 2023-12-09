@@ -54,9 +54,7 @@ permalink: "comparisons/{{ comparison.id }}.html"
                         <tr>
                             <th>Line</th>
                             <th>Column</th>
-                            <th>Severity</th>
-                            <th>Message</th>
-                            <th>Source</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,9 +62,10 @@ permalink: "comparisons/{{ comparison.id }}.html"
                         <tr>
                             <td>{{ error.line }}</td>
                             <td>{{ error.column }}</td>
-                            <td>{{ error.severity }}</td>
-                            <td>{{ error.message }}</td>
-                            <td>{{ error.source }}</td>
+                            <td>
+                                [<span title="severity">{{ error.severity }}</span>] <span title="source">{{ error.source }}</span><br>
+                                <small title="message">{{ error.message }}</small>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -75,9 +74,7 @@ permalink: "comparisons/{{ comparison.id }}.html"
                         <tr>
                             <th>Line</th>
                             <th>Column</th>
-                            <th>Severity</th>
-                            <th>Message</th>
-                            <th>Source</th>
+                            <th>Details</th>
                         </tr>
                     </tfoot>
                     {% endif %}
