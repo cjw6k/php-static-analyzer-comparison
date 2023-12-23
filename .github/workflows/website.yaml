@@ -42,7 +42,7 @@ jobs:
         run: npm run build-gh
 
       - name: upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./website/_site
 
