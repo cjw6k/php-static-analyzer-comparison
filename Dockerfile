@@ -11,8 +11,7 @@ RUN apk add --no-cache \
     php83-pecl-ast=1.1.1-r0 \
     php83-phar=${PHP_VERSION} \
     php83-simplexml=${PHP_VERSION} \
-    php83-tokenizer=${PHP_VERSION} \
- && ln -s /usr/bin/php83 /usr/bin/php
+    php83-tokenizer=${PHP_VERSION}
 
 COPY --from=composer:2.6.5 /usr/bin/composer /usr/bin/composer
 
