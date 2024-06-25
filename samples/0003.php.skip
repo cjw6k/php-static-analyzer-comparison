@@ -1,0 +1,6 @@
+<?php
+/*
+ * As of 1.11.5 phpstan now considers this error so undignified that it refuses to report anything about any of the
+ * other samples if this sample is included in the set of files to be checked!
+ */
+This is not PHP.
