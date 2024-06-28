@@ -1,11 +1,11 @@
 <nav>
     <a href="{{ "/" | url }}">Index</a>
-    {% if pagination.href.previous %}
-        &middot; <a href="{{ pagination.href.first | url }}">&laquo; First</a>
-        &middot; <a href="{{ pagination.href.previous | url }}">&lsaquo; Previous</a>
-    {% endif %}
     {% if pagination.href.next %}
         &middot; <a href="{{ pagination.href.next | url }}">Next &rsaquo;</a>
         &middot; <a href="{{ pagination.href.last | url }}">Last &raquo;</a>
+    {% endif %}
+    {% if pagination.href.previous %}
+        &middot; <a href="{{ pagination.href.first | url }}">&laquo; First</a>
+        &middot; <a href="{{ pagination.href.previous | url }}">&lsaquo; Previous</a>
     {% endif %}
 </nav>
