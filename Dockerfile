@@ -4,6 +4,7 @@ ARG PHP_VERSION="8.3.10-r0"
 
 RUN apk add --no-cache \
     php83=${PHP_VERSION} \
+    php83-ctype=${PHP_VERSION} \
     php83-curl=${PHP_VERSION} \
     php83-dom=${PHP_VERSION} \
     php83-mbstring=${PHP_VERSION} \
@@ -13,7 +14,7 @@ RUN apk add --no-cache \
     php83-simplexml=${PHP_VERSION} \
     php83-tokenizer=${PHP_VERSION}
 
-COPY --from=composer:2.6.5 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.7.7 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /opt/php-static-analyzer-comparison
 
