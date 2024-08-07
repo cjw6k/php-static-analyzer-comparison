@@ -4,6 +4,7 @@ ARG PHP_VERSION="8.3.10-r0"
 
 RUN apk add --no-cache \
     php83=${PHP_VERSION} \
+    php83-ctype=${PHP_VERSION} \
     php83-curl=${PHP_VERSION} \
     php83-dom=${PHP_VERSION} \
     php83-mbstring=${PHP_VERSION} \
