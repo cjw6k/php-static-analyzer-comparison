@@ -1,6 +1,6 @@
 FROM alpine:3.20.2@sha256:0a4eaa0eecf5f8c050e5bba433f58c052be7587ee8af3e8b3910ef9ab5fbe9f5
 
-ARG PHP_VERSION="8.3.9-r0"
+ARG PHP_VERSION="8.3.10-r0"
 
 RUN apk add --no-cache \
     php83=${PHP_VERSION} \
