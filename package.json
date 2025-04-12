@@ -12,7 +12,7 @@
     "devDependencies": {
         "@11ty/eleventy": "^3.0.0",
         "cssnano": "^7.0.6",
-        "postcss": "^8.5.1",
+        "postcss": "^8.5.3",
         "prism-themes": "^1.9.0",
         "prismjs": "^1.29.0",
         "sakura.css": "^1.5.0",
