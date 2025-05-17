@@ -10,7 +10,7 @@
     "author": "cjw6k",
     "license": "MIT",
     "devDependencies": {
-        "@11ty/eleventy": "^3.0.0",
+        "@11ty/eleventy": "^3.1.0",
         "cssnano": "^7.0.7",
         "postcss": "^8.5.3",
         "prism-themes": "^1.9.0",
